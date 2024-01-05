@@ -15,7 +15,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./data:/var/lib/mysql
+      - mysql_data_test:/var/lib/mysql
     
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -29,3 +29,7 @@ services:
       - "8080:80"
     depends_on:
       - db
+
+volumes:
+  mysql_data_test: # กำหนดชื่อ volume ที่ต้องการจะสร้าง
+    driver: local
